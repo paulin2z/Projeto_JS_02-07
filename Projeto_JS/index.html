@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto_JavaScript</title>
+</head>
+<body>
+   
+
+    <script>
+
+const usuario = prompt("Digite seu Login de Usuario:");
+let nivel = prompt("Digite seu nivel de acesso (1 - Admin, 2 - Coordernador, 3 - Usuario)");
+if (nivel === "1"){
+    alert("Bem vindo Admin " + usuario);
+} else if (nivel === "2"){
+    alert("Bem vindo Coordenador " + usuario);
+} else if (nivel === "3"){
+    alert("Bem vindo Usuario " + usuario);
+} else {
+    alert("Nivel de acesso invalido");
+}
+
+// Tentativas para entrada
+let tentativasSenha = 0;
+let senhaCorreta = false;
+while (tentativasSenha < 3) {
+    const senha = prompt("Digite sua senha:");
+    if (senha === "123456") {
+        alert("Senha correta! Acesso concedido.");
+        senhaCorreta = true;
+        break;
+    } else {
+        tentativasSenha++;
+        if (tentativasSenha < 3) {
+            alert("Senha incorreta. Tente novamente.");
+        } else {
+            alert("Número máximo de tentativas atingido. Acesso negado.");
+        }
+    }
+}
+
+// Menu principal
+if (senhaCorreta) {
+    let tentativasMenu = 0;
+    while (tentativasMenu < 5) {
+        let menu = "[Menu]\n1. Visualizar relatórios\n2. Gerenciar usuários\n3. Sair\n\nEscolha:";
+        let escolha = prompt(menu);
+        tentativasMenu++;
+        if (escolha === "1") {
+            alert("Relatórios carregados com sucesso!");
+        } else if (escolha === "2") {
+            if (nivel === "1") {
+                alert("Acesso permitido à gestão de usuários.");
+            } else {
+                alert("Acesso negado! Você não tem permissão.");
+            }
+        } else if (escolha === "3") {
+            alert("Saindo do sistema...");
+            break;
+        } else {
+            alert("Opção inválida!");
+        }
+        if (tentativasMenu === 5) {
+            alert("Limite de tentativas atingido. Tente novamente mais tarde.");
+        }
+    }
+}
+
+
+
+    </script>
+
+
+
+
+
+    <h1>Projeto JavaScript</h1>
+    <p>Este é um exemplo de projeto JavaScript simples.</p>
+
+<script src="script.js"></script>
+
+</body>
+</html>
